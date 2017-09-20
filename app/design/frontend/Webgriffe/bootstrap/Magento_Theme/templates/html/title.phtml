@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
+$title = '';
+if (trim($block->getPageHeading())) {
+    $title = '<span class="base" data-ui-id="page-title-wrapper" ' .  $block->getAddBaseAttribute() . '>'
+        . $block->escapeHtml($block->getPageHeading()) . '</span>';
+}
+?>
+<?php if ($title): ?>
+<div class="cat-banner top-banner">
+<div class="page-title category-title">
+    <h1 id="categoryPage_Title" class="cat-title">
+        <?php /* @escapeNotVerified */ echo $title ?>
+    </h1>
+    </div>
+    <?php echo $block->getChildHtml(); ?>
+</div>
+<?php endif; ?>

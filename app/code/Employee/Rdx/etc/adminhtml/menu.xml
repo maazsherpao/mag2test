@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Employee_Rdx::parent" title="Rdx" module="Employee_Rdx" sortOrder="100" resource="Employee_Rdx::parent"/>
+        <add id="Employee_Rdx::index" title="Rdx Index" module="Employee_Rdx" sortOrder="10" action="rdx/index" resource="Employee_Rdx::index" parent="Employee_Rdx::parent"/>
+		<add id="Employee_Rdx::rdx" title="Employee Rdx" module="Employee_Rdx" sortOrder="20" parent="Employee_Rdx::parent" action="rdx/rdx" resource="Employee_Rdx::rdx"/>
+
+    </menu>
+</config>

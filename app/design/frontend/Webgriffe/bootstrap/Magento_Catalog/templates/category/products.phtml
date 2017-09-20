@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php
+  $_helper       = $this->helper('Magento\Catalog\Helper\Output');
+  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+  $path = $category->getPath();
+  $path1 = explode('/', $path);
+  $result = count($path1);
+  $childcategories = $category->getChildrenCategories();
+  $sub_category_count = count($childcategories);
+
+if($sub_category_count != 0 && $result <=3 ){
+echo '<div class="container sub-cat-list">';
+foreach($childcategories as $child)
+{   
+    echo '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 category-box">';
+    echo '<div class="sub-cat-box">';
+    $cat = $objectManager->create('Magento\Catalog\Model\Category')->load($child->getId()); 
+    
+       if ($_imgUrl = $cat->getImageUrl())
+             {
+        $_imgHtml = '<a"><img src="' . $_imgUrl . '" alt="' . $block->escapeHtml($cat->getName()) . '" title="' . $block->escapeHtml($cat->getName()) . '" class="class="img-responsive"" />
+        <h2 class="sub-cat-name">'.$block->escapeHtml($cat->getName()).'</h2>
+        <a href="'.$block->escapeHtml($cat->getUrl()).'" class="shop-now"><span>Shop Now</span></a>
+
+        </a>';
+        $_imgHtml = $_helper->categoryAttribute($cat, $_imgHtml, 'image');
+        echo $_imgHtml;
+} 
+
+echo '</div>'; 
+echo '</div>';
+}
+echo '</div>';
+} else {
+if (!$block->isContentMode() || $block->isMixedMode()):
+echo $block->getProductListHtml();
+endif;
+}
+//echo "ITS DONE";
+?>
+<?php //if (!$block->isContentMode() || $block->isMixedMode()): ?>
+    <?php //echo $block->getProductListHtml() ?>
+<?php //endif; ?>

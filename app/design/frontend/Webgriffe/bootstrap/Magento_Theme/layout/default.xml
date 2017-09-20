@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+
+        <referenceContainer name="header-wrapper" htmlTag="div" htmlClass="container-fluid header-container-container">
+            <container name="top.links.wrapper" htmlTag="div" htmlClass="top-header" before="-">
+                <block class="Magento\Cms\Block\Block" name="inline-top-links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">inline-top-links</argument>
+                    </arguments>
+                </block>
+                <referenceBlock name="top.links">
+                     <block class="Magento\Theme\Block\Html\Header" name="header" as="header" before="-">
+                     <arguments>
+                    <argument name="show_part" xsi:type="string">Welcome Guest!</argument>
+                    </arguments>
+                   </block>
+                   <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="switch/stores.phtml"/>
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">nav navbar-nav pull-right</argument>
+                    </arguments>
+                </referenceBlock>
+            </container>
+        </referenceContainer>
+        
+        
+        
+        <referenceContainer name="header.container">
+            <container name="sub.header.container" htmlTag="nav" htmlClass="navbar navbar-default affix-top">
+                
+                    <container name="navbar-container" htmlTag="div" htmlClass="container-fluid">
+                        <container name="navbar-header" htmlTag="div" htmlClass="navbar-header">
+                            <block class="Magento\Framework\View\Element\Template" name="nav.toggle"
+                                   template="Magento_Theme::html/header/nav.toggle.phtml" before="-">
+                                <arguments>
+                                    <argument name="toggle_id" xsi:type="string">wg-navbar-collapse</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Theme\Block\Html\Header\Logo" name="logo" after="nav.toggle">
+                                <arguments>
+                                    <argument name="logo_img_width" xsi:type="number">59</argument>
+                                    <argument name="logo_img_height" xsi:type="number">20</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                        <container name="navbar-collapse" htmlTag="div" htmlClass="collapse navbar-collapse" htmlId="wg-navbar-collapse">
+                            <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav"
+                                   template="html/topmenu.phtml" ttl="3600" before="-">
+                                <arguments>
+                                    <argument name="parent_item_class" xsi:type="string">dropdown</argument>
+                                    <argument name="submenu_class" xsi:type="string">dropdown-menu</argument>
+                                </arguments>
+                            </block>
+
+                        </container>
+                    </container>
+                
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="page.top">
+            <block class="Magento\Theme\Block\Html\Breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+        </referenceContainer>
+        
+        <referenceContainer name="footer-container">
+            
+        <block class="Magento\Cms\Block\Block" name="Footer Block">
+        <arguments>
+        <argument name="block_id" xsi:type="string">footer-block</argument>
+        </arguments>
+        </block>
+        </referenceContainer>
+        <move element="cms_footer_links_container" destination="footer-links-container" />
+        <move element="footer_links" destination="footer-links-container" />
+        <move element="form.subscribe" destination="footer-tools-container" />
+        <move element="store_switcher" destination="footer-tools-container" />
+        <move element="copyright" destination="footer-legal-container" />
+        <move element="report.bugs" destination="footer-legal-container" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="view.addto.wishlist" remove="true" />
+        <referenceBlock name="wish-list-link" remove="true" />         
+        <referenceBlock name="my-account-link" remove="true" /> 
+        <move element="store_switcher" destination="header-wrapper" after="top.links" />
+        <move element="minicart" destination="catalog.topnav" after="top.search" />
+        <move element="top.links" destination="top.links.wrapper" before="-" />
+        <referenceBlock name="skip_to_content" remove="true"/>
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true" />
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="sale.reorder.sidebar" remove="true" />
+        <referenceContainer name="sidebar.additional" remove="true" />
+
+        
+    </body>
+</page>

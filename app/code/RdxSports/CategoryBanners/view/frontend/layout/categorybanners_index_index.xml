@@ -1,0 +1,30 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Category Baners</title>
+        <!-- 
+		demo
+		<css src="RdxSports_CategoryBanners::css/css.css"/>
+		<script src="RdxSports_CategoryBanners::js/js.js"/>
+		<css src="jquery/fileUploader/css/jquery.fileupload-ui.css"/>
+		<script src="path/file.js" defer="defer"/>
+		<link src="http://url.com" src_type="url"/>
+		<remove src="path/remove/file.css"/>
+
+		-->
+    </head> 
+
+    <body>
+
+
+        <referenceContainer name="sidebar.main">
+            <block class="RdxSports\CategoryBanners\Block\Index\Sidebar" name="categorybanners_index_sidebar" before="-" template="RdxSports_CategoryBanners::categorybanners_index_sidebar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="RdxSports\CategoryBanners\Block\Index\Index" name="categorybanners_index_index" template="RdxSports_CategoryBanners::categorybanners_index_index.phtml"/>
+        </referenceContainer>
+
+
+    </body>
+</page>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="RdxSports_CategoryBanners::parent" title="CategoryBanners" module="RdxSports_CategoryBanners" sortOrder="100" resource="RdxSports_CategoryBanners::parent"/>
+        <add id="RdxSports_CategoryBanners::index" title="CategoryBanners Index" module="RdxSports_CategoryBanners" sortOrder="10" action="categorybanners/index" resource="RdxSports_CategoryBanners::index" parent="RdxSports_CategoryBanners::parent"/>
+		<add id="RdxSports_CategoryBanners::catbanner" title="RdxSports CategoryBanners" module="RdxSports_CategoryBanners" sortOrder="20" parent="RdxSports_CategoryBanners::parent" action="categorybanners/catbanner" resource="RdxSports_CategoryBanners::catbanner"/>
+
+    </menu>
+</config>
